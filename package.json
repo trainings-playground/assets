@@ -1,8 +1,8 @@
 {
-  "name": "training-playground",
-  "version": "1.0.3",
-  "description": "",
-  "main": "./index.js",
-  "author": "",
-  "license": "ISC"
+    "name": "training-playground",
+    "version": "1.0.7",
+    "description": "",
+    "main": "./index.js",
+    "author": "",
+    "license": "ISC"
 }
