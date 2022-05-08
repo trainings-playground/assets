@@ -1,56 +1,5 @@
+import { P as PropTypes, j as jsx, a as jsxs } from "./jsx-runtime.js";
 import { r as react } from "./export.js";
-var propTypes = { exports: {} };
-var ReactPropTypesSecret$1 = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-var ReactPropTypesSecret_1 = ReactPropTypesSecret$1;
-var ReactPropTypesSecret = ReactPropTypesSecret_1;
-function emptyFunction() {
-}
-function emptyFunctionWithReset() {
-}
-emptyFunctionWithReset.resetWarningCache = emptyFunction;
-var factoryWithThrowingShims = function() {
-  function shim(props, propName, componentName, location, propFullName, secret) {
-    if (secret === ReactPropTypesSecret) {
-      return;
-    }
-    var err = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
-    err.name = "Invariant Violation";
-    throw err;
-  }
-  shim.isRequired = shim;
-  function getShim() {
-    return shim;
-  }
-  var ReactPropTypes = {
-    array: shim,
-    bigint: shim,
-    bool: shim,
-    func: shim,
-    number: shim,
-    object: shim,
-    string: shim,
-    symbol: shim,
-    any: shim,
-    arrayOf: getShim,
-    element: shim,
-    elementType: shim,
-    instanceOf: getShim,
-    node: shim,
-    objectOf: getShim,
-    oneOf: getShim,
-    oneOfType: getShim,
-    shape: getShim,
-    exact: getShim,
-    checkPropTypes: emptyFunctionWithReset,
-    resetWarningCache: emptyFunction
-  };
-  ReactPropTypes.PropTypes = ReactPropTypes;
-  return ReactPropTypes;
-};
-{
-  propTypes.exports = factoryWithThrowingShims();
-}
-var PropTypes = propTypes.exports;
 function e() {
   return (e = Object.assign || function(t) {
     for (var e2 = 1; e2 < arguments.length; e2++) {
@@ -61,7 +10,7 @@ function e() {
     return t;
   }).apply(this, arguments);
 }
-const n$1 = ["children", "options"], r = ["allowFullScreen", "allowTransparency", "autoComplete", "autoFocus", "autoPlay", "cellPadding", "cellSpacing", "charSet", "className", "classId", "colSpan", "contentEditable", "contextMenu", "crossOrigin", "encType", "formAction", "formEncType", "formMethod", "formNoValidate", "formTarget", "frameBorder", "hrefLang", "inputMode", "keyParams", "keyType", "marginHeight", "marginWidth", "maxLength", "mediaGroup", "minLength", "noValidate", "radioGroup", "readOnly", "rowSpan", "spellCheck", "srcDoc", "srcLang", "srcSet", "tabIndex", "useMap"].reduce((t, e2) => (t[e2.toLowerCase()] = e2, t), { for: "htmlFor" }), o = { amp: "&", apos: "'", gt: ">", lt: "<", nbsp: "\xA0", quot: "\u201C" }, c = ["style", "script"], a = /([-A-Z0-9_:]+)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|(?:\{((?:\\.|{[^}]*?}|[^}])*)\})))?/gi, u = /mailto:/i, i = /\n{2,}$/, l$1 = /^( *>[^\n]+(\n[^\n]+)*\n*)+\n{2,}/, s = /^ *> ?/gm, _ = /^ {2,}\n/, f$1 = /^(?:( *[-*_]) *){3,}(?:\n *)+\n/, d = /^\s*(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n *)+\n?/, p$1 = /^(?: {4}[^\n]+\n*)+(?:\n *)+\n?/, g = /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/, m$1 = /^(?:\n *)*\n/, y = /\r\n?/g, h = /^\[\^([^\]]+)](:.*)\n/, k$1 = /^\[\^([^\]]+)]/, x = /\f/g, b = /^\s*?\[(x|\s)\]/, v = /^ *(#{1,6}) *([^\n]+?)(?: +#*)?(?:\n *)*(?:\n|$)/, S = /^([^\n]+)\n *(=|-){3,} *(?:\n *)+\n/, $ = /^ *(?!<[a-z][^ >/]* ?\/>)<([a-z][^ >/]*) ?([^>]*)\/{0}>\n?(\s*(?:<\1[^>]*?>[\s\S]*?<\/\1>|(?!<\1)[\s\S])*?)<\/\1>\n*/i, w = /&([a-z]+);/g, z = /^<!--[\s\S]*?(?:-->)/, E = /^(data|aria|x)-[a-z_][a-z\d_.-]*$/, A = /^ *<([a-z][a-z0-9:]*)(?:\s+((?:<.*?>|[^>])*))?\/?>(?!<\/\1>)(\s*\n)?/i, R = /^\{.*\}$/, I = /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/, M = /^<([^ >]+@[^ >]+)>/, O = /^<([^ >]+:\/[^ >]+)>/, B = / *\n+$/, L = /(?:^|\n)( *)$/, T = /-([a-z])?/gi, j = /^(.*\|?.*)\n *(\|? *[-:]+ *\|[-| :]*)\n((?:.*\|.*\n)*)\n?/, C = /^\[([^\]]*)\]:\s*(\S+)\s*("([^"]*)")?/, D = /^!\[([^\]]*)\] ?\[([^\]]*)\]/, N = /^\[([^\]]*)\] ?\[([^\]]*)\]/, Z = /(\[|\])/g, F = /(\n|^[-*]\s|^#|^ {2,}|^-{2,}|^>\s)/, P = /\t/g, G = /^ *\| */, H = /(^ *\||\| *$)/g, q$1 = / *$/, U = /^ *:-+: *$/, V = /^ *:-+ *$/, W = /^ *-+: *$/, Q = /^([*_])\1((?:\[.*?\][([].*?[)\]]|<.*?>(?:.*?<.*?>)?|`.*?`|~+.*?~+|.)*?)\1\1(?!\1)/, X = /^([*_])((?:\[.*?\][([].*?[)\]]|<.*?>(?:.*?<.*?>)?|`.*?`|~+.*?~+|.)*?)\1(?!\1|\w)/, J = /^~~((?:\[.*?\]|<.*?>(?:.*?<.*?>)?|`.*?`|.)*?)~~/, K = /^\\([^0-9A-Za-z\s])/, Y = /^[\s\S]+?(?=[^0-9A-Z\s\u00c0-\uffff&;.()'"]|\d+\.|\n\n| {2,}\n|\w+:\S|$)/i, tt = /^\n+/, et = /^([ \t]*)/, nt = /\\([^0-9A-Z\s])/gi, rt = new RegExp("^( *)((?:[*+-]|\\d+\\.)) +"), ot = new RegExp("^( *)((?:[*+-]|\\d+\\.)) +[^\\n]*(?:\\n(?!\\1(?:[*+-]|\\d+\\.) )[^\\n]*)*(\\n|$)", "gm"), ct = new RegExp("^( *)((?:[*+-]|\\d+\\.)) [\\s\\S]+?(?:\\n{2,}(?! )(?!\\1(?:[*+-]|\\d+\\.) (?!(?:[*+-]|\\d+\\.) ))\\n*|\\s*\\n*$)"), at = "(?:\\[[^\\]]*\\]|[^\\[\\]]|\\](?=[^\\[]*\\]))*", ut = new RegExp("^\\[(" + at + `)\\]\\(\\s*<?((?:[^\\s\\\\]|\\\\.)*?)>?(?:\\s+['"]([\\s\\S]*?)['"])?\\s*\\)`), it = new RegExp("^!\\[(" + at + `)\\]\\(\\s*<?((?:[^\\s\\\\]|\\\\.)*?)>?(?:\\s+['"]([\\s\\S]*?)['"])?\\s*\\)`), lt = [l$1, p$1, d, v, S, z, ot, ct, j], st = [...lt, /^[^\n]+(?:  \n|\n{2,})/, $, A];
+const n = ["children", "options"], r = ["allowFullScreen", "allowTransparency", "autoComplete", "autoFocus", "autoPlay", "cellPadding", "cellSpacing", "charSet", "className", "classId", "colSpan", "contentEditable", "contextMenu", "crossOrigin", "encType", "formAction", "formEncType", "formMethod", "formNoValidate", "formTarget", "frameBorder", "hrefLang", "inputMode", "keyParams", "keyType", "marginHeight", "marginWidth", "maxLength", "mediaGroup", "minLength", "noValidate", "radioGroup", "readOnly", "rowSpan", "spellCheck", "srcDoc", "srcLang", "srcSet", "tabIndex", "useMap"].reduce((t, e2) => (t[e2.toLowerCase()] = e2, t), { for: "htmlFor" }), o = { amp: "&", apos: "'", gt: ">", lt: "<", nbsp: "\xA0", quot: "\u201C" }, c = ["style", "script"], a = /([-A-Z0-9_:]+)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|(?:\{((?:\\.|{[^}]*?}|[^}])*)\})))?/gi, u = /mailto:/i, i = /\n{2,}$/, l = /^( *>[^\n]+(\n[^\n]+)*\n*)+\n{2,}/, s = /^ *> ?/gm, _ = /^ {2,}\n/, f = /^(?:( *[-*_]) *){3,}(?:\n *)+\n/, d = /^\s*(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n *)+\n?/, p = /^(?: {4}[^\n]+\n*)+(?:\n *)+\n?/, g = /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/, m = /^(?:\n *)*\n/, y = /\r\n?/g, h = /^\[\^([^\]]+)](:.*)\n/, k = /^\[\^([^\]]+)]/, x = /\f/g, b = /^\s*?\[(x|\s)\]/, v = /^ *(#{1,6}) *([^\n]+?)(?: +#*)?(?:\n *)*(?:\n|$)/, S = /^([^\n]+)\n *(=|-){3,} *(?:\n *)+\n/, $ = /^ *(?!<[a-z][^ >/]* ?\/>)<([a-z][^ >/]*) ?([^>]*)\/{0}>\n?(\s*(?:<\1[^>]*?>[\s\S]*?<\/\1>|(?!<\1)[\s\S])*?)<\/\1>\n*/i, w = /&([a-z]+);/g, z = /^<!--[\s\S]*?(?:-->)/, E = /^(data|aria|x)-[a-z_][a-z\d_.-]*$/, A = /^ *<([a-z][a-z0-9:]*)(?:\s+((?:<.*?>|[^>])*))?\/?>(?!<\/\1>)(\s*\n)?/i, R = /^\{.*\}$/, I = /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/, M = /^<([^ >]+@[^ >]+)>/, O = /^<([^ >]+:\/[^ >]+)>/, B = / *\n+$/, L = /(?:^|\n)( *)$/, T = /-([a-z])?/gi, j = /^(.*\|?.*)\n *(\|? *[-:]+ *\|[-| :]*)\n((?:.*\|.*\n)*)\n?/, C = /^\[([^\]]*)\]:\s*(\S+)\s*("([^"]*)")?/, D = /^!\[([^\]]*)\] ?\[([^\]]*)\]/, N = /^\[([^\]]*)\] ?\[([^\]]*)\]/, Z = /(\[|\])/g, F = /(\n|^[-*]\s|^#|^ {2,}|^-{2,}|^>\s)/, P = /\t/g, G = /^ *\| */, H = /(^ *\||\| *$)/g, q = / *$/, U = /^ *:-+: *$/, V = /^ *:-+ *$/, W = /^ *-+: *$/, Q = /^([*_])\1((?:\[.*?\][([].*?[)\]]|<.*?>(?:.*?<.*?>)?|`.*?`|~+.*?~+|.)*?)\1\1(?!\1)/, X = /^([*_])((?:\[.*?\][([].*?[)\]]|<.*?>(?:.*?<.*?>)?|`.*?`|~+.*?~+|.)*?)\1(?!\1|\w)/, J = /^~~((?:\[.*?\]|<.*?>(?:.*?<.*?>)?|`.*?`|.)*?)~~/, K = /^\\([^0-9A-Za-z\s])/, Y = /^[\s\S]+?(?=[^0-9A-Z\s\u00c0-\uffff&;.()'"]|\d+\.|\n\n| {2,}\n|\w+:\S|$)/i, tt = /^\n+/, et = /^([ \t]*)/, nt = /\\([^0-9A-Z\s])/gi, rt = new RegExp("^( *)((?:[*+-]|\\d+\\.)) +"), ot = new RegExp("^( *)((?:[*+-]|\\d+\\.)) +[^\\n]*(?:\\n(?!\\1(?:[*+-]|\\d+\\.) )[^\\n]*)*(\\n|$)", "gm"), ct = new RegExp("^( *)((?:[*+-]|\\d+\\.)) [\\s\\S]+?(?:\\n{2,}(?! )(?!\\1(?:[*+-]|\\d+\\.) (?!(?:[*+-]|\\d+\\.) ))\\n*|\\s*\\n*$)"), at = "(?:\\[[^\\]]*\\]|[^\\[\\]]|\\](?=[^\\[]*\\]))*", ut = new RegExp("^\\[(" + at + `)\\]\\(\\s*<?((?:[^\\s\\\\]|\\\\.)*?)>?(?:\\s+['"]([\\s\\S]*?)['"])?\\s*\\)`), it = new RegExp("^!\\[(" + at + `)\\]\\(\\s*<?((?:[^\\s\\\\]|\\\\.)*?)>?(?:\\s+['"]([\\s\\S]*?)['"])?\\s*\\)`), lt = [l, p, d, v, S, z, ot, ct, j], st = [...lt, /^[^\n]+(?:  \n|\n{2,})/, $, A];
 function _t(t) {
   return t.replace(/[ÀÁÂÃÄÅàáâãäåæÆ]/g, "a").replace(/[çÇ]/g, "c").replace(/[ðÐ]/g, "d").replace(/[ÈÉÊËéèêë]/g, "e").replace(/[ÏïÎîÍíÌì]/g, "i").replace(/[Ññ]/g, "n").replace(/[øØœŒÕõÔôÓóÒò]/g, "o").replace(/[ÜüÛûÚúÙù]/g, "u").replace(/[ŸÿÝý]/g, "y").replace(/[^a-z0-9- ]/gi, "").replace(/ /gi, "-").toLowerCase();
 }
@@ -75,7 +24,7 @@ function dt(t, e2, n2) {
   n2.t = r2;
   let c2 = [[]];
   return o2.forEach(function(t2, e3) {
-    t2.type === "tableSeparator" ? e3 !== 0 && e3 !== o2.length - 1 && c2.push([]) : (t2.type !== "text" || o2[e3 + 1] != null && o2[e3 + 1].type !== "tableSeparator" || (t2.content = t2.content.replace(q$1, "")), c2[c2.length - 1].push(t2));
+    t2.type === "tableSeparator" ? e3 !== 0 && e3 !== o2.length - 1 && c2.push([]) : (t2.type !== "text" || o2[e3 + 1] != null && o2[e3 + 1].type !== "tableSeparator" || (t2.content = t2.content.replace(q, "")), c2[c2.length - 1].push(t2));
   }), c2;
 }
 function pt(t, e2, n2) {
@@ -220,7 +169,7 @@ function Ot(n2, H2 = {}) {
       return e3;
     }, {}) : void 0;
   }
-  const nt2 = [], at2 = {}, lt2 = { blockQuote: { i: ht(l$1), l: Mt.HIGH, _: (t, e2, n3) => ({ content: e2(t[0].replace(s, ""), n3) }), p: (t, e2, n3) => U2("blockquote", { key: n3.g }, e2(t.content, n3)) }, breakLine: { i: kt(_), l: Mt.HIGH, _: Et, p: (t, e2, n3) => U2("br", { key: n3.g }) }, breakThematic: { i: ht(f$1), l: Mt.HIGH, _: Et, p: (t, e2, n3) => U2("hr", { key: n3.g }) }, codeBlock: { i: ht(p$1), l: Mt.MAX, _: (t) => ({ content: t[0].replace(/^ {4}/gm, "").replace(/\n+$/, ""), lang: void 0 }), p: (t, e2, n3) => U2("pre", { key: n3.g }, U2("code", { className: t.lang ? `lang-${t.lang}` : "" }, t.content)) }, codeFenced: { i: ht(d), l: Mt.MAX, _: (t) => ({ content: t[3], lang: t[2] || void 0, type: "codeBlock" }) }, codeInline: { i: yt(g), l: Mt.LOW, _: (t) => ({ content: t[2] }), p: (t, e2, n3) => U2("code", { key: n3.g }, t.content) }, footnote: { i: ht(h), l: Mt.MAX, _: (t) => (nt2.push({ footnote: t[2], identifier: t[1] }), {}), p: At }, footnoteReference: { i: mt(k$1), l: Mt.HIGH, _: (t) => ({ content: t[1], target: `#${H2.slugify(t[1])}` }), p: (t, e2, n3) => U2("a", { key: n3.g, href: bt(t.target) }, U2("sup", { key: n3.g }, t.content)) }, gfmTask: { i: mt(b), l: Mt.HIGH, _: (t) => ({ completed: t[1].toLowerCase() === "x" }), p: (t, e2, n3) => U2("input", { checked: t.completed, key: n3.g, readOnly: true, type: "checkbox" }) }, heading: { i: ht(v), l: Mt.HIGH, _: (t, e2, n3) => ({ content: St(e2, t[2], n3), id: H2.slugify(t[2]), level: t[1].length }), p: (t, e2, n3) => (t.tag = `h${t.level}`, U2(t.tag, { id: t.id, key: n3.g }, e2(t.content, n3))) }, headingSetext: { i: ht(S), l: Mt.MAX, _: (t, e2, n3) => ({ content: St(e2, t[1], n3), level: t[2] === "=" ? 1 : 2, type: "heading" }) }, htmlComment: { i: kt(z), l: Mt.HIGH, _: () => ({}), p: At }, image: { i: yt(it), l: Mt.HIGH, _: (t) => ({ alt: t[1], target: vt(t[2]), title: t[3] }), p: (t, e2, n3) => U2("img", { key: n3.g, alt: t.alt || void 0, title: t.title || void 0, src: bt(t.target) }) }, link: { i: mt(ut), l: Mt.LOW, _: (t, e2, n3) => ({ content: $t(e2, t[1], n3), target: vt(t[2]), title: t[3] }), p: (t, e2, n3) => U2("a", { key: n3.g, href: bt(t.target), title: t.title }, e2(t.content, n3)) }, linkAngleBraceStyleDetector: { i: mt(O), l: Mt.MAX, _: (t) => ({ content: [{ content: t[1], type: "text" }], target: t[1], type: "link" }) }, linkBareUrlDetector: { i: (t, e2) => e2.m ? null : mt(I)(t, e2), l: Mt.MAX, _: (t) => ({ content: [{ content: t[1], type: "text" }], target: t[1], title: void 0, type: "link" }) }, linkMailtoDetector: { i: mt(M), l: Mt.MAX, _(t) {
+  const nt2 = [], at2 = {}, lt2 = { blockQuote: { i: ht(l), l: Mt.HIGH, _: (t, e2, n3) => ({ content: e2(t[0].replace(s, ""), n3) }), p: (t, e2, n3) => U2("blockquote", { key: n3.g }, e2(t.content, n3)) }, breakLine: { i: kt(_), l: Mt.HIGH, _: Et, p: (t, e2, n3) => U2("br", { key: n3.g }) }, breakThematic: { i: ht(f), l: Mt.HIGH, _: Et, p: (t, e2, n3) => U2("hr", { key: n3.g }) }, codeBlock: { i: ht(p), l: Mt.MAX, _: (t) => ({ content: t[0].replace(/^ {4}/gm, "").replace(/\n+$/, ""), lang: void 0 }), p: (t, e2, n3) => U2("pre", { key: n3.g }, U2("code", { className: t.lang ? `lang-${t.lang}` : "" }, t.content)) }, codeFenced: { i: ht(d), l: Mt.MAX, _: (t) => ({ content: t[3], lang: t[2] || void 0, type: "codeBlock" }) }, codeInline: { i: yt(g), l: Mt.LOW, _: (t) => ({ content: t[2] }), p: (t, e2, n3) => U2("code", { key: n3.g }, t.content) }, footnote: { i: ht(h), l: Mt.MAX, _: (t) => (nt2.push({ footnote: t[2], identifier: t[1] }), {}), p: At }, footnoteReference: { i: mt(k), l: Mt.HIGH, _: (t) => ({ content: t[1], target: `#${H2.slugify(t[1])}` }), p: (t, e2, n3) => U2("a", { key: n3.g, href: bt(t.target) }, U2("sup", { key: n3.g }, t.content)) }, gfmTask: { i: mt(b), l: Mt.HIGH, _: (t) => ({ completed: t[1].toLowerCase() === "x" }), p: (t, e2, n3) => U2("input", { checked: t.completed, key: n3.g, readOnly: true, type: "checkbox" }) }, heading: { i: ht(v), l: Mt.HIGH, _: (t, e2, n3) => ({ content: St(e2, t[2], n3), id: H2.slugify(t[2]), level: t[1].length }), p: (t, e2, n3) => (t.tag = `h${t.level}`, U2(t.tag, { id: t.id, key: n3.g }, e2(t.content, n3))) }, headingSetext: { i: ht(S), l: Mt.MAX, _: (t, e2, n3) => ({ content: St(e2, t[1], n3), level: t[2] === "=" ? 1 : 2, type: "heading" }) }, htmlComment: { i: kt(z), l: Mt.HIGH, _: () => ({}), p: At }, image: { i: yt(it), l: Mt.HIGH, _: (t) => ({ alt: t[1], target: vt(t[2]), title: t[3] }), p: (t, e2, n3) => U2("img", { key: n3.g, alt: t.alt || void 0, title: t.title || void 0, src: bt(t.target) }) }, link: { i: mt(ut), l: Mt.LOW, _: (t, e2, n3) => ({ content: $t(e2, t[1], n3), target: vt(t[2]), title: t[3] }), p: (t, e2, n3) => U2("a", { key: n3.g, href: bt(t.target), title: t.title }, e2(t.content, n3)) }, linkAngleBraceStyleDetector: { i: mt(O), l: Mt.MAX, _: (t) => ({ content: [{ content: t[1], type: "text" }], target: t[1], type: "link" }) }, linkBareUrlDetector: { i: (t, e2) => e2.m ? null : mt(I)(t, e2), l: Mt.MAX, _: (t) => ({ content: [{ content: t[1], type: "text" }], target: t[1], title: void 0, type: "link" }) }, linkMailtoDetector: { i: mt(M), l: Mt.MAX, _(t) {
     let e2 = t[1], n3 = t[1];
     return u.test(n3) || (n3 = "mailto:" + n3), { content: [{ content: e2.replace("mailto:", ""), type: "text" }], target: n3, type: "link" };
   } }, list: { i(t, e2, n3) {
@@ -240,7 +189,7 @@ function Ot(n2, H2 = {}) {
     }), ordered: o2, start: c2 };
   }, p: (t, e2, n3) => U2(t.ordered ? "ol" : "ul", { key: n3.g, start: t.start }, t.items.map(function(t2, r2) {
     return U2("li", { key: r2 }, e2(t2, n3));
-  })) }, newlineCoalescer: { i: ht(m$1), l: Mt.LOW, _: Et, p: () => "\n" }, paragraph: { i: xt, l: Mt.LOW, _: zt, p: (t, e2, n3) => U2("p", { key: n3.g }, e2(t.content, n3)) }, ref: { i: mt(C), l: Mt.MAX, _: (t) => (at2[t[1]] = { target: t[2], title: t[4] }, {}), p: At }, refImage: { i: yt(D), l: Mt.MAX, _: (t) => ({ alt: t[1] || void 0, ref: t[2] }), p: (t, e2, n3) => U2("img", { key: n3.g, alt: t.alt, src: bt(at2[t.ref].target), title: at2[t.ref].title }) }, refLink: { i: mt(N), l: Mt.MAX, _: (t, e2, n3) => ({ content: e2(t[1], n3), fallbackContent: e2(t[0].replace(Z, "\\$1"), n3), ref: t[2] }), p: (t, e2, n3) => at2[t.ref] ? U2("a", { key: n3.g, href: bt(at2[t.ref].target), title: at2[t.ref].title }, e2(t.content, n3)) : U2("span", { key: n3.g }, e2(t.fallbackContent, n3)) }, table: { i: ht(j), l: Mt.HIGH, _: pt, p: (t, e2, n3) => U2("table", { key: n3.g }, U2("thead", null, U2("tr", null, t.header.map(function(r2, o2) {
+  })) }, newlineCoalescer: { i: ht(m), l: Mt.LOW, _: Et, p: () => "\n" }, paragraph: { i: xt, l: Mt.LOW, _: zt, p: (t, e2, n3) => U2("p", { key: n3.g }, e2(t.content, n3)) }, ref: { i: mt(C), l: Mt.MAX, _: (t) => (at2[t[1]] = { target: t[2], title: t[4] }, {}), p: At }, refImage: { i: yt(D), l: Mt.MAX, _: (t) => ({ alt: t[1] || void 0, ref: t[2] }), p: (t, e2, n3) => U2("img", { key: n3.g, alt: t.alt, src: bt(at2[t.ref].target), title: at2[t.ref].title }) }, refLink: { i: mt(N), l: Mt.MAX, _: (t, e2, n3) => ({ content: e2(t[1], n3), fallbackContent: e2(t[0].replace(Z, "\\$1"), n3), ref: t[2] }), p: (t, e2, n3) => at2[t.ref] ? U2("a", { key: n3.g, href: bt(at2[t.ref].target), title: at2[t.ref].title }, e2(t.content, n3)) : U2("span", { key: n3.g }, e2(t.fallbackContent, n3)) }, table: { i: ht(j), l: Mt.HIGH, _: pt, p: (t, e2, n3) => U2("table", { key: n3.g }, U2("thead", null, U2("tr", null, t.header.map(function(r2, o2) {
     return U2("th", { key: o2, style: gt(t, o2) }, e2(r2, n3));
   }))), U2("tbody", null, t.cells.map(function(r2, o2) {
     return U2("tr", { key: o2 }, r2.map(function(r3, o3) {
@@ -321,40 +270,9 @@ var Markdown = (e2) => {
     for (r3 = 0; r3 < c3.length; r3++)
       e3.indexOf(n2 = c3[r3]) >= 0 || (o3[n2] = t[n2]);
     return o3;
-  }(e2, n$1);
+  }(e2, n);
   return react.exports.cloneElement(Ot(r2, o2), c2);
 };
-var jsxRuntime = { exports: {} };
-var reactJsxRuntime_production_min = {};
-/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var f = react.exports, k = Symbol.for("react.element"), l = Symbol.for("react.fragment"), m = Object.prototype.hasOwnProperty, n = f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, p = { key: true, ref: true, __self: true, __source: true };
-function q(c2, a2, g2) {
-  var b2, d2 = {}, e2 = null, h2 = null;
-  g2 !== void 0 && (e2 = "" + g2);
-  a2.key !== void 0 && (e2 = "" + a2.key);
-  a2.ref !== void 0 && (h2 = a2.ref);
-  for (b2 in a2)
-    m.call(a2, b2) && !p.hasOwnProperty(b2) && (d2[b2] = a2[b2]);
-  if (c2 && c2.defaultProps)
-    for (b2 in a2 = c2.defaultProps, a2)
-      d2[b2] === void 0 && (d2[b2] = a2[b2]);
-  return { $$typeof: k, type: c2, key: e2, ref: h2, props: d2, _owner: n.current };
-}
-reactJsxRuntime_production_min.Fragment = l;
-reactJsxRuntime_production_min.jsx = q;
-reactJsxRuntime_production_min.jsxs = q;
-{
-  jsxRuntime.exports = reactJsxRuntime_production_min;
-}
-const jsx = jsxRuntime.exports.jsx;
 function Code({
   className,
   children
@@ -389,23 +307,48 @@ Img.propTypes = {
   src: PropTypes.string.isRequired
 };
 function Exercise({
-  file
+  sections
 }) {
-  return /* @__PURE__ */ jsx(Markdown, {
-    options: {
-      overrides: {
-        code: {
-          component: Code
-        },
-        img: {
-          component: Img
+  const [value, setValue] = react.exports.useState(0);
+  const onChange = ({
+    target
+  }) => {
+    setValue(Number(target.value));
+  };
+  const currentSection = react.exports.useMemo(() => sections[value].value, [sections, value]);
+  const sectionsOpt = react.exports.useMemo(() => sections.map(({
+    id: label
+  }, id) => ({
+    id,
+    label
+  })));
+  return /* @__PURE__ */ jsxs("div", {
+    children: [/* @__PURE__ */ jsx("select", {
+      value,
+      onChange,
+      children: sectionsOpt.map((opt) => /* @__PURE__ */ jsx("option", {
+        value: opt.id,
+        children: opt.label
+      }, opt.id))
+    }), /* @__PURE__ */ jsx(Markdown, {
+      options: {
+        overrides: {
+          code: {
+            component: Code
+          },
+          img: {
+            component: Img
+          }
         }
-      }
-    },
-    children: file
+      },
+      children: currentSection
+    })]
   });
 }
 Exercise.propTypes = {
-  file: PropTypes.string.isRequired
+  sections: PropTypes.arrayOf({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  }).isRequired
 };
-export { Exercise as E, jsx as j };
+export { Exercise as E };
