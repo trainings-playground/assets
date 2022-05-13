@@ -275,22 +275,39 @@ var Markdown = (e2) => {
 };
 function Code({
   className,
-  children
+  children,
+  onClickCmd
 }) {
+  const isCmd = react.exports.useMemo(() => className.search(/command/) > -1, [className]);
+  const onKeyup = ({
+    target
+  }) => {
+    if (target.key === "Enter") {
+      onClickCmd();
+    }
+  };
   return /* @__PURE__ */ jsx("code", {
+    role: "button",
+    tabIndex: 0,
+    onKeyUp: onKeyup,
+    "data-cmd": isCmd ? className.substring("lang-".length) : null,
     style: {
-      border: className.search(/command/) > -1 ? "1px solid red" : ""
+      border: isCmd ? "1px solid red" : ""
     },
+    onClick: onClickCmd,
     children
   });
 }
-Code.defaultProps = {
-  className: "",
-  children: []
-};
 Code.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+  onClickCmd: PropTypes.func
+};
+Code.defaultProps = {
+  className: "",
+  children: [],
+  onClickCmd: () => {
+  }
 };
 function Img({
   alt,
@@ -307,9 +324,19 @@ Img.propTypes = {
   src: PropTypes.string.isRequired
 };
 function Exercise({
-  sections
+  sections,
+  onClickCmd
 }) {
   const [value, setValue] = react.exports.useState(0);
+  const _onClickCmd = ({
+    target
+  }) => {
+    var _a;
+    onClickCmd({
+      terminal: (((_a = target.dataset) == null ? void 0 : _a.cmd) || "").replace("command:", ""),
+      cmd: target.innerText
+    });
+  };
   const onChange = ({
     target
   }) => {
@@ -334,7 +361,10 @@ function Exercise({
       options: {
         overrides: {
           code: {
-            component: Code
+            component: Code,
+            props: {
+              onClickCmd: _onClickCmd
+            }
           },
           img: {
             component: Img
@@ -349,6 +379,11 @@ Exercise.propTypes = {
   sections: PropTypes.arrayOf({
     id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  onClickCmd: PropTypes.func
+};
+Exercise.defaultProps = {
+  onClickCmd: () => {
+  }
 };
 export { Exercise as E };

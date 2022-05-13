@@ -1,5 +1,5 @@
+import { j as jsx, P as PropTypes } from "./jsx-runtime.js";
 import { E as Exercise } from "./Exercise.js";
-import { j as jsx } from "./jsx-runtime.js";
 import "./export.js";
 const sections = [{
   "id": "About this exercise",
@@ -35,9 +35,25 @@ const sections = [{
   "id": "Running our sample application",
   "value": ""
 }];
-function exo() {
+const terminals = ["host"];
+function ExoConsumer({
+  onClickCmd
+}) {
   return /* @__PURE__ */ jsx(Exercise, {
-    sections
+    sections,
+    onClickCmd
   });
 }
-export { exo as default };
+ExoConsumer.terminals = terminals;
+ExoConsumer.propTypes = {
+  sections: PropTypes.arrayOf({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  }).isRequired,
+  onClickCmd: PropTypes.func
+};
+ExoConsumer.defaultProps = {
+  onClickCmd: () => {
+  }
+};
+export { ExoConsumer as default };

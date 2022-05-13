@@ -1,5 +1,5 @@
+import { j as jsx, P as PropTypes } from "./jsx-runtime.js";
 import { E as Exercise } from "./Exercise.js";
-import { j as jsx } from "./jsx-runtime.js";
 import "./export.js";
 const sections = [{
   "id": "About the exercise",
@@ -20,9 +20,25 @@ const sections = [{
   "id": "Get kubeconfig on the host machine",
   "value": "In case you deployed the VM with multipass, use the following command from the host machine to get the admin kubeconfig:\n\n```command:host\nmultipass exec master -- sudo cat /etc/kubernetes/admin.conf > kubeconfig.cfg\nmkdir $HOME/.kube && cp kubeconfig.cfg $HOME/.kube/config\n```\n\nYou can now communicate with the cluster from the host machine directly (without sshing on the master node anymore)\n\n```command:host\nk get no\n```"
 }];
-function exo() {
+const terminals = ["host", "master", "worker1", "worker2"];
+function ExoConsumer({
+  onClickCmd
+}) {
   return /* @__PURE__ */ jsx(Exercise, {
-    sections
+    sections,
+    onClickCmd
   });
 }
-export { exo as default };
+ExoConsumer.terminals = terminals;
+ExoConsumer.propTypes = {
+  sections: PropTypes.arrayOf({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  }).isRequired,
+  onClickCmd: PropTypes.func
+};
+ExoConsumer.defaultProps = {
+  onClickCmd: () => {
+  }
+};
+export { ExoConsumer as default };
