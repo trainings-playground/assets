@@ -1,5 +1,4 @@
-import { j as jsx, P as PropTypes } from "./jsx-runtime.js";
-import { E as Exercise } from "./Exercise.js";
+import { j as jsx, E as Exercise, P as PropTypes } from "./Exercise.js";
 import "./export.js";
 const sections = [{
   "id": "About the exercise",
@@ -22,15 +21,18 @@ const sections = [{
 }];
 const terminals = ["host", "master", "worker1", "worker2"];
 function ExoConsumer({
+  renderSections,
   onClickCmd
 }) {
   return /* @__PURE__ */ jsx(Exercise, {
     sections,
+    renderSections,
     onClickCmd
   });
 }
 ExoConsumer.terminals = terminals;
 ExoConsumer.propTypes = {
+  renderSections: PropTypes.func,
   sections: PropTypes.arrayOf({
     id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
@@ -39,6 +41,7 @@ ExoConsumer.propTypes = {
 };
 ExoConsumer.defaultProps = {
   onClickCmd: () => {
-  }
+  },
+  renderSections: () => /* @__PURE__ */ jsx("span", {})
 };
 export { ExoConsumer as default };
