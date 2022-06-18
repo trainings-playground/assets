@@ -374,9 +374,7 @@ function Code({
     tabIndex: 0,
     onKeyUp: onKeyup,
     "data-cmd": isCmd ? className.substring("lang-".length) : null,
-    style: {
-      border: isCmd ? "1px solid red" : ""
-    },
+    className: isCmd ? "training-command" : "",
     onClick: onClickCmd,
     children
   });
